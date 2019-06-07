@@ -1,0 +1,504 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="d9a5d99f-65a3-444a-be6f-a140fd60ccce" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/DSFD-tensorflow.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Figure_1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/anchor/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/anchor/base_anchor.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/anchor/box_utils.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/anchor/common.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/anchor/nms.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/anchor/tf_anchors.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/anchor/utils.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/api/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/api/face_detector.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/base_trainer/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/base_trainer/net_work.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/augmentor/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/augmentor/augmentation.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/augmentor/test.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/augmentor/test.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/augmentor/test2.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/datainfo.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/utils.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/helper/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/helper/init.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/helper/logger.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/model_eval/fddb.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/model_eval/wider.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/net/FEM.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/net/GN.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/net/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/net/lightnet/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/net/lightnet/backbone.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/net/lightnet/magic.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/net/mobilenet/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/net/mobilenet/backbone.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/net/mobilenet/mobilenet_v1.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/net/resnet/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/net/resnet/backbone.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/net/resnet/basemodel.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/net/resnet/resnet_utils.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/net/resnet/resnet_v1.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/net/simplenet/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/net/simplenet/backbone.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/net/simplenet/simple_nn.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/net/ssd.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/net/ssd_loss.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/net/ssd_out.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/net/vgg/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/net/vgg/backbone.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/net/vgg/vgg.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/prepare_wider_data.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/res_screenshot_11.05.2019.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/res_screenshot_12.05.2019.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tools/VOCxml.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tools/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tools/auto_freeze.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tools/freeze.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tools/to_labelme.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tools/to_lableimg.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/train.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/train_config.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vis.py" afterDir="false" />
+    </list>
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileEditorManager">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Python Script" />
+      </list>
+    </option>
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>sess</find>
+      <find>self.maxSize</find>
+      <find>make</find>
+      <find>np.zeros</find>
+      <find>train_map_func</find>
+      <find>saver</find>
+      <find>cond</find>
+      <find>TpuBatchNormalization</find>
+      <find>Switch</find>
+      <find>data</find>
+      <find>override_params</find>
+    </findStrings>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/net/lightnet/backbone.py" />
+        <option value="$PROJECT_DIR$/anchor/base_anchor.py" />
+        <option value="$PROJECT_DIR$/net/ssd_out.py" />
+        <option value="$PROJECT_DIR$/Prunning/parse_ckpt.py" />
+        <option value="$PROJECT_DIR$/tools/auto_freeze.py" />
+        <option value="$PROJECT_DIR$/net/resnet/basemodel.py" />
+        <option value="$PROJECT_DIR$/data/augmentor/augmentation.py" />
+        <option value="$PROJECT_DIR$/net_work.py" />
+        <option value="$PROJECT_DIR$/model_eval/tmp.py" />
+        <option value="$PROJECT_DIR$/train.py" />
+        <option value="$PROJECT_DIR$/data/utils.py" />
+        <option value="$PROJECT_DIR$/README.md" />
+        <option value="$PROJECT_DIR$/net/resnet/backbone.py" />
+        <option value="$PROJECT_DIR$/net/mobilenet/backbone.py" />
+        <option value="$PROJECT_DIR$/net/vgg/backbone.py" />
+        <option value="$PROJECT_DIR$/net/ssd_loss.py" />
+        <option value="$PROJECT_DIR$/net/efficientnet/model.py" />
+        <option value="$PROJECT_DIR$/api/face_detector.py" />
+        <option value="$PROJECT_DIR$/vis.py" />
+        <option value="$PROJECT_DIR$/model_eval/wider.py" />
+        <option value="$PROJECT_DIR$/base_trainer/net_work.py" />
+        <option value="$PROJECT_DIR$/net/FEM.py" />
+        <option value="$PROJECT_DIR$/net/ssd.py" />
+        <option value="$PROJECT_DIR$/net/utils.py" />
+        <option value="$PROJECT_DIR$/net/efficientnet/backbone.py" />
+        <option value="$PROJECT_DIR$/model_eval/fddb.py" />
+        <option value="$PROJECT_DIR$/train_config.py" />
+      </list>
+    </option>
+  </component>
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="64" />
+    <option name="y" value="-11" />
+    <option name="width" value="1857" />
+    <option name="height" value="1092" />
+  </component>
+  <component name="ProjectView">
+    <navigator proportions="" version="1">
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="Scope" />
+      <pane id="ProjectPane" />
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="d9a5d99f-65a3-444a-be6f-a140fd60ccce" name="Default Changelist" comment="" />
+      <created>1558620189046</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1558620189046</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="65" y="-4" width="1855" height="1084" extended-state="6" />
+    <layout>
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.29655924" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info id="Favorites" order="2" side_tool="true" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Find" order="1" />
+      <window_info anchor="bottom" id="Run" order="2" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="bottom" id="Version Control" order="7" />
+      <window_info anchor="bottom" id="Terminal" order="8" />
+      <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" weight="0.3294979" />
+      <window_info anchor="bottom" id="Python Console" order="10" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+    </layout>
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/../anaconda3/lib/python3.6/site-packages/tensorflow/python/pywrap_tensorflow_internal.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="308">
+          <caret line="321" column="4" selection-start-line="321" selection-start-column="4" selection-end-line="321" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/net/lightnet/backbone.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="279">
+          <caret line="33" column="44" lean-forward="true" selection-start-line="33" selection-start-column="44" selection-end-line="33" selection-end-column="44" />
+          <folding>
+            <element signature="e#22#45#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/net/vgg/__init__.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/anchor/base_anchor.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="77" column="30" selection-start-line="77" selection-start-column="30" selection-end-line="77" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Prunning/parse_ckpt.py" />
+    <entry file="file://$PROJECT_DIR$/net/ssd_out.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="23">
+          <caret line="59" column="4" selection-start-line="59" selection-start-column="4" selection-end-line="59" selection-end-column="4" />
+          <folding>
+            <element signature="e#22#45#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/net/resnet/__init__.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../anaconda3/lib/python3.6/site-packages/tensorflow/python/ops/array_ops.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="194">
+          <caret line="3156" column="19" selection-start-line="3156" selection-start-column="10" selection-end-line="3156" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/data/augmentor/augmentation.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="62">
+          <caret line="312" column="36" lean-forward="true" selection-start-line="312" selection-start-column="36" selection-end-line="312" selection-end-column="36" />
+          <folding>
+            <element signature="e#0#9#0" expanded="true" />
+            <element signature="e#2662#4351#0" />
+            <element signature="e#13355#13917#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/prepare_wider_data.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="741">
+          <caret line="71" column="16" selection-start-line="71" selection-start-column="16" selection-end-line="71" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/net/resnet/basemodel.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="361">
+          <caret line="30" column="33" lean-forward="true" selection-start-line="30" selection-start-column="33" selection-end-line="30" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/net_work.py" />
+    <entry file="file://$PROJECT_DIR$/train.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="114">
+          <caret line="6" selection-start-line="6" selection-end-line="6" />
+          <folding>
+            <element signature="e#0#42#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/helper/logger.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="342">
+          <caret line="18" column="23" lean-forward="true" selection-start-line="18" selection-start-column="23" selection-end-line="18" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/net/simplenet/backbone.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/net/mobilenet/backbone.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="736">
+          <caret line="46" selection-start-line="46" selection-end-line="49" selection-end-column="30" />
+          <folding>
+            <element signature="e#0#23#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/data/utils.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="483">
+          <caret line="253" column="27" lean-forward="true" selection-start-line="253" selection-start-column="27" selection-end-line="253" selection-end-column="27" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/net/ssd_loss.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="768">
+          <caret line="183" selection-start-line="183" selection-end-line="183" />
+          <folding>
+            <element signature="e#22#45#0" expanded="true" />
+            <element signature="e#1500#1965#0" />
+            <element signature="e#2026#2703#0" />
+            <element signature="e#2795#4556#0" />
+            <element signature="e#4606#6229#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/net/resnet/backbone.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="774">
+          <caret line="42" column="30" lean-forward="true" selection-start-line="39" selection-start-column="8" selection-end-line="42" selection-end-column="30" />
+          <folding>
+            <element signature="e#0#23#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/api/face_detector.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="171">
+          <caret line="9" column="8" selection-start-line="9" selection-start-column="8" selection-end-line="9" selection-end-column="8" />
+          <folding>
+            <element signature="e#0#23#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/README.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="361">
+            <caret line="19" lean-forward="true" selection-start-line="19" selection-end-line="19" />
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tools/to_labelme.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tools/to_lableimg.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/base_trainer/net_work.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="618">
+          <caret line="88" column="56" lean-forward="true" selection-start-line="88" selection-start-column="56" selection-end-line="88" selection-end-column="56" />
+          <folding>
+            <element signature="e#1485#2130#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/model_eval/wider.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="551">
+          <caret line="37" column="28" selection-start-line="37" selection-start-column="28" selection-end-line="37" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vis.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="21" selection-start-line="21" selection-end-line="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tools/auto_freeze.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="160">
+          <caret line="9" column="13" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tools/freeze.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="401">
+          <caret line="444" column="16" selection-start-line="444" selection-start-column="16" selection-end-line="444" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/net/vgg/vgg.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1320" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/net/vgg/backbone.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="506">
+          <caret line="50" column="37" selection-start-line="50" selection-start-column="33" selection-end-line="50" selection-end-column="37" />
+          <folding>
+            <element signature="e#0#23#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/net/utils.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/net/efficientnet/model.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="385">
+          <caret line="173" column="40" lean-forward="true" selection-start-line="173" selection-start-column="33" selection-end-line="173" selection-end-column="48" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/net/FEM.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="247">
+          <caret line="18" column="70" selection-start-line="18" selection-start-column="70" selection-end-line="18" selection-end-column="70" />
+          <folding>
+            <element signature="e#0#23#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/net/efficientnet/builder.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="555">
+          <caret line="128" column="34" selection-start-line="128" selection-start-column="6" selection-end-line="128" selection-end-column="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/net/efficientnet/backbone.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="141">
+          <caret line="13" selection-start-line="13" selection-end-line="13" />
+          <folding>
+            <element signature="e#0#23#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/net/ssd.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="300">
+          <caret line="47" column="30" selection-start-line="47" selection-start-column="21" selection-end-line="47" selection-end-column="34" />
+          <folding>
+            <element signature="e#22#45#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/model_eval/fddb.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="361">
+          <caret line="19" column="86" selection-start-line="19" selection-start-column="86" selection-end-line="19" selection-end-column="86" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../anaconda3/lib/python3.6/site-packages/tensorflow/python/keras/layers/convolutional.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-281">
+          <caret line="1973" column="28" selection-start-line="1973" selection-start-column="15" selection-end-line="1973" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/net/efficientnet/utils.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="730">
+          <caret line="202" column="44" selection-start-line="202" selection-start-column="38" selection-end-line="202" selection-end-column="53" />
+          <folding>
+            <element signature="e#2447#3101#0" />
+            <element signature="e#5708#6179#0" />
+            <element signature="e#6240#7761#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/train_config.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="222">
+          <caret line="89" lean-forward="true" selection-start-line="89" selection-end-line="89" />
+        </state>
+      </provider>
+    </entry>
+  </component>
+</project>
