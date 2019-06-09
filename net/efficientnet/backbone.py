@@ -24,10 +24,10 @@ def efficient_ssd(image,L2_reg,is_training=True,data_format='NHWC'):
 
     with slim.arg_scope(resnet_arg_scope(weight_decay=L2_reg, bn_is_training=is_training)):
 
-        efficient_fms = [tf.nn.relu(slim.batch_norm(endpoints['reduction_2'])),
-                         tf.nn.relu(slim.batch_norm(endpoints['reduction_3'])),
-                         tf.nn.relu(slim.batch_norm(endpoints['reduction_4'])),
-                         tf.nn.relu(endpoints['global_pool'])]
+        efficient_fms = [endpoints['reduction_2/expansion_output'],
+                         endpoints['reduction_3/expansion_output'],
+                         endpoints['reduction_4/expansion_output'],
+                         endpoints['global_pool']]
 
 
         net = slim.conv2d(efficient_fms[-1], 512, [1, 1], stride=1, activation_fn=tf.nn.relu, scope='extra_conv_1_1')

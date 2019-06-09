@@ -9,7 +9,7 @@ os.environ["CUDA_VISIBLE_DEVICES"] = "0"          ##if u use muti gpu set them v
 
 config.TRAIN = edict()
 config.TRAIN.num_gpu = 1
-config.TRAIN.batch_size = 8                    ###A big batch size may achieve a better result, but the memory is a problem
+config.TRAIN.batch_size = 6                    ###A big batch size may achieve a better result, but the memory is a problem
 config.TRAIN.log_interval = 10
 config.TRAIN.epoch = 2000
 config.TRAIN.train_set_size=13000  ###########u need be sure
@@ -45,9 +45,9 @@ config.DATA.NUM_CLASS = config.DATA.NUM_CATEGORY + 1  # +1 background
 config.DATA.PIXEL_MEAN = [123.675, 116.28, 103.53]   ###rgb
 config.DATA.PIXEL_STD = [58.395, 57.12, 57.375]
 
-config.DATA.hin = 512  # input size
-config.DATA.win= 512
-config.DATA.MAX_SIZE=512
+config.DATA.hin = 640  # input size
+config.DATA.win= 640
+config.DATA.MAX_SIZE=640
 config.DATA.cover_small_face=5        #one of the
 ####ssd generally not suppport muti scale
 config.DATA.MUTISCALE=False                #if muti scale set False  then config.DATA.hin will be the inputsize
@@ -63,7 +63,7 @@ config.ANCHOR.ANCHOR_SIZES = (16,32,64, 128, 256, 512)   # sqrtarea of the ancho
 config.ANCHOR.ANCHOR_STRIDES = (4, 8,16, 32, 64, 128)  # strides for each FPN level. Must be the same length as ANCHOR_SIZES
 config.ANCHOR.ANCHOR_RATIOS = (1., 4.) ######
 config.ANCHOR.POSITIVE_ANCHOR_THRESH = 0.35
-config.ANCHOR.NEGATIVE_ANCHOR_THRESH = 0.3
+config.ANCHOR.NEGATIVE_ANCHOR_THRESH = 0.35
 config.ANCHOR.AVG_MATCHES=20
 config.ANCHOR.super_match=True
 
@@ -111,10 +111,10 @@ print(len(all_anchors_flatten))
 config.MODEL = edict()
 config.MODEL.continue_train=False ### revover from a trained model
 config.MODEL.model_path = './model/'  # save directory
-config.MODEL.net_structure='efficientnet-b0' ######'resnet_v1_50,resnet_v1_101,mobilenet
-config.MODEL.pretrained_model='efficientnet-b0/model.ckpt'
-config.MODEL.fpn_dims=[32,64,128,256,256,256]
-config.MODEL.FEM_dims=256
+config.MODEL.net_structure='efficientnet-b3' ######'resnet_v1_50,resnet_v1_101,mobilenet
+config.MODEL.pretrained_model='efficientnet-b3/model.ckpt'
+config.MODEL.fpn_dims=[192,288,816,320,512,256]
+config.MODEL.FEM_dims=512
 
 
 # ##mobilenet as basemodel

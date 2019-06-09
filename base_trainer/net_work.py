@@ -227,7 +227,7 @@ class trainner():
                         with tf.name_scope('tower_%d' % (i)) as scope:
                             with slim.arg_scope([slim.model_variable, slim.variable], device='/cpu:0'):
 
-                                images_ = tf.placeholder(tf.float32, [None, None, None, 3], name="images")
+                                images_ = tf.placeholder(tf.float32, [None, 640, 640, 3], name="images")
                                 boxes_ = tf.placeholder(tf.float32, [cfg.TRAIN.batch_size, None, 4], name="input_boxes")
                                 labels_ = tf.placeholder(tf.int64, [cfg.TRAIN.batch_size, None], name="input_labels")
                                 ###total anchor
