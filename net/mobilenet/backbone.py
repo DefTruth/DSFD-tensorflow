@@ -1,11 +1,10 @@
 import tensorflow as tf
 import tensorflow.contrib.slim as slim
-from functools import partial
 
 from train_config import config as cfg
 
 from net.mobilenet.mobilenet_v1 import mobilenet_v1_050,mobilenet_v1_arg_scope
-from net.resnet.basemodel import resnet_arg_scope
+from net.arg_scope.resnet_args_cope import resnet_arg_scope
 
 
 from net.FEM import create_fem_net

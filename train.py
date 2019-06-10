@@ -1,7 +1,7 @@
 from base_trainer.net_work import trainner
 import setproctitle
 
-setproctitle.setproctitle("face-like")
+setproctitle.setproctitle("detect")
 
 trainner=trainner()
 

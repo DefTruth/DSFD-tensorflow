@@ -13,7 +13,6 @@ from net.mobilenet.backbone import mobilenet_ssd
 from net.vgg.backbone import vgg_ssd
 from net.ssd_out import ssd_out
 from net.ssd_loss import ssd_loss
-from net.FEM import create_fem_net
 from train_config import config as cfg
 from anchor.tf_anchors import get_all_anchors_fpn
 

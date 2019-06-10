@@ -173,9 +173,9 @@ class trainner():
     def make_data(self, ds,is_training=True):
 
         if is_training:
-            ds = MultiThreadMapData(ds, 5, self.train_map_func, buffer_size=200, strict=True)
+            ds = MultiThreadMapData(ds, 3, self.train_map_func, buffer_size=200, strict=True)
         else:
-            ds = MultiThreadMapData(ds, 5, self.val_map_func, buffer_size=200, strict=True)
+            ds = MultiThreadMapData(ds, 3, self.val_map_func, buffer_size=200, strict=True)
         ds = BatchData(ds, cfg.TRAIN.num_gpu * cfg.TRAIN.batch_size, remainder=True,use_list=False)
         ds = MultiProcessPrefetchData(ds, 100,1)
         ds.reset_state()
@@ -227,7 +227,7 @@ class trainner():
                         with tf.name_scope('tower_%d' % (i)) as scope:
                             with slim.arg_scope([slim.model_variable, slim.variable], device='/cpu:0'):
 
-                                images_ = tf.placeholder(tf.float32, [None, 640, 640, 3], name="images")
+                                images_ = tf.placeholder(tf.float32, [None, None,None, 3], name="images")
                                 boxes_ = tf.placeholder(tf.float32, [cfg.TRAIN.batch_size, None, 4], name="input_boxes")
                                 labels_ = tf.placeholder(tf.int64, [cfg.TRAIN.batch_size, None], name="input_labels")
                                 ###total anchor

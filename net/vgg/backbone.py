@@ -1,6 +1,6 @@
 import tensorflow as tf
 import tensorflow.contrib.slim as slim
-from net.resnet.basemodel import resnet50, resnet101,resnet_arg_scope
+from net.arg_scope.resnet_args_cope import resnet_arg_scope
 
 from net.vgg.vgg import vgg_16
 from net.FEM import create_fem_net
@@ -57,13 +57,12 @@ def vgg_ssd(image,L2_reg,is_training=True):
                           normalizer_fn=None,
                           scope='fc7')
 
-
-
-
         extra_fms=extra_feature(conv7)
 
-        vgg_fms = [end_points['vgg_16/conv3/conv3_3'], end_points['vgg_16/conv4/conv4_3'],
-                   end_points['vgg_16/conv5/conv5_3'],    conv7]+extra_fms
+        vgg_fms = [end_points['vgg_16/conv3/conv3_3'],
+                   end_points['vgg_16/conv4/conv4_3'],
+                   end_points['vgg_16/conv5/conv5_3'],
+                   conv7]+extra_fms
 
 
         print(vgg_fms)
