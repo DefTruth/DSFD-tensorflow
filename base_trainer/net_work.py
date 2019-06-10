@@ -470,7 +470,7 @@ class trainner():
             feed_dict[self.inputs[4]] = 0
             feed_dict[self.inputs[5]] = False
 
-            _, total_loss_value, reg_loss_value,cla_loss_value, l2_loss_value, lr_value = \
+            total_loss_value, reg_loss_value,cla_loss_value, l2_loss_value, lr_value = \
                 self.sess.run([*self.val_outputs],
                               feed_dict=feed_dict)
 
