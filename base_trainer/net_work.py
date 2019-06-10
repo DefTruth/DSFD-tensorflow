@@ -312,8 +312,7 @@ class trainner():
                             cla_loss,
                             l2_loss,
                             lr]
-            self.val_outputs = [grads,
-                                total_loss_to_show,
+            self.val_outputs = [total_loss_to_show,
                                 reg_loss,
                                 cla_loss,
                                 l2_loss,
@@ -416,7 +415,7 @@ class trainner():
                 fetch_duration = time.time() - start_time
 
                 start_time2 = time.time()
-                _, total_loss_value,reg_loss_value,cla_loss_value,l2_loss_value,lr_value = \
+                total_loss_value,reg_loss_value,cla_loss_value,l2_loss_value,lr_value = \
                     self.sess.run([*self.outputs],
                              feed_dict=feed_dict)
 
