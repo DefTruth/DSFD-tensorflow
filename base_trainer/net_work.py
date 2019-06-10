@@ -415,7 +415,7 @@ class trainner():
                 fetch_duration = time.time() - start_time
 
                 start_time2 = time.time()
-                total_loss_value,reg_loss_value,cla_loss_value,l2_loss_value,lr_value = \
+                _,total_loss_value,reg_loss_value,cla_loss_value,l2_loss_value,lr_value = \
                     self.sess.run([*self.outputs],
                              feed_dict=feed_dict)
 
