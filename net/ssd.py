@@ -104,7 +104,7 @@ def SSD(images,boxes,labels,L2_reg,training=True):
     get_predictions(reg_final,cla_final,anchors_)
 
     return reg_loss,cla_loss
-def get_predictions(box_encodings,cla,anchors, score_threshold=0.05, iou_threshold=0.3, max_boxes=750):
+def get_predictions(box_encodings,cla,anchors, score_threshold=0.05, iou_threshold=0.3, max_boxes=1000):
     """Postprocess outputs of the network.
 
     Returns:

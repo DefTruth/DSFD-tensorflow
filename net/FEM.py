@@ -7,19 +7,30 @@ from net.arg_scope.resnet_args_cope import resnet_arg_scope
 
 def cpm(product,scope):
 
+    if cfg.MODEL.fpn_sep_conv:
+        dim=cfg.MODEL.FEM_dims
+        with tf.variable_scope(scope):
 
-    dim=cfg.MODEL.FEM_dims
-    with tf.variable_scope(scope):
+            eyes_1=slim.separable_conv2d(product, dim//2, [3, 3], stride=1,rate=1, activation_fn=tf.nn.relu,normalizer_fn=None, scope='eyes_1')
 
-        eyes_1=slim.conv2d(product, dim//2, [3, 3], stride=1,rate=1, activation_fn=tf.nn.relu,normalizer_fn=None, scope='eyes_1')
+            eyes_2=slim.separable_conv2d(product, dim//4, [5, 5], stride=1,rate=1,  activation_fn=tf.nn.relu, normalizer_fn=None,scope='eyes_2')
 
-        eyes_2_1=slim.conv2d(product, dim//2, [3, 3], stride=1,rate=2,  activation_fn=tf.nn.relu,normalizer_fn=None, scope='eyes_2_1')
-        eyes_2=slim.conv2d(eyes_2_1, dim//4, [3, 3], stride=1,rate=1,  activation_fn=tf.nn.relu, normalizer_fn=None,scope='eyes_2')
+            eyes_3 = slim.separable_conv2d(eyes_2, dim//4, [5, 5], stride=1,rate=1,  activation_fn=tf.nn.relu, normalizer_fn=None,scope='eyes_3')
 
-        eyes_3_1 = slim.conv2d(eyes_2_1, dim//4, [3, 3], stride=1, rate=2, activation_fn=tf.nn.relu,normalizer_fn=None, scope='eyes_3_1')
-        eyes_3 = slim.conv2d(eyes_3_1, dim//4, [3, 3], stride=1,rate=1,  activation_fn=tf.nn.relu, normalizer_fn=None,scope='eyes_3')
+            fme_res = tf.concat([eyes_1, eyes_2,eyes_3], axis=3)
+    else:
+        dim=cfg.MODEL.FEM_dims
+        with tf.variable_scope(scope):
 
-        fme_res = tf.concat([eyes_1, eyes_2,eyes_3], axis=3)
+            eyes_1=slim.conv2d(product, dim//2, [3, 3], stride=1,rate=1, activation_fn=tf.nn.relu,normalizer_fn=None, scope='eyes_1')
+
+            eyes_2_1=slim.conv2d(product, dim//2, [3, 3], stride=1,rate=2,  activation_fn=tf.nn.relu,normalizer_fn=None, scope='eyes_2_1')
+            eyes_2=slim.conv2d(eyes_2_1, dim//4, [3, 3], stride=1,rate=1,  activation_fn=tf.nn.relu, normalizer_fn=None,scope='eyes_2')
+
+            eyes_3_1 = slim.conv2d(eyes_2_1, dim//4, [3, 3], stride=1, rate=2, activation_fn=tf.nn.relu,normalizer_fn=None, scope='eyes_3_1')
+            eyes_3 = slim.conv2d(eyes_3_1, dim//4, [3, 3], stride=1,rate=1,  activation_fn=tf.nn.relu, normalizer_fn=None,scope='eyes_3')
+
+            fme_res = tf.concat([eyes_1, eyes_2,eyes_3], axis=3)
 
     return fme_res
 

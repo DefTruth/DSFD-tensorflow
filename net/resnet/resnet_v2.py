@@ -187,7 +187,7 @@ def resnet_v2(inputs,
         # This is needed because the pre-activation variant does not have batch
         # normalization or activation functions in the residual unit output. See
         # Appendix of [2].
-        net = slim.batch_norm(net, activation_fn=tf.nn.relu, scope='postnorm')
+        #net = slim.batch_norm(net, activation_fn=tf.nn.relu, scope='postnorm')
         # Convert end_points_collection into a dictionary of end_points.
         end_points = slim.utils.convert_collection_to_dict(
             end_points_collection)

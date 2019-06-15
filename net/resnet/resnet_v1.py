@@ -213,7 +213,7 @@ def resnet_v1(inputs,
               raise ValueError('The output_stride needs to be a multiple of 4.')
             output_stride /= 4
           net = resnet_utils.conv2d_same(net, 64, 7, stride=2, scope='conv1')
-          net = slim.max_pool2d(net, [3, 3], stride=2, scope='pool1')
+          net = slim.max_pool2d(net, [3, 3], stride=2, scope='pool1',padding='SAME')
         net = resnet_utils.stack_blocks_dense(net, blocks, output_stride,
                                               store_non_strided_activations)
         # Convert end_points_collection into a dictionary of end_points.

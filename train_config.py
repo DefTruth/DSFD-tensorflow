@@ -5,11 +5,11 @@ import numpy as np
 from easydict import EasyDict as edict
 
 config = edict()
-os.environ["CUDA_VISIBLE_DEVICES"] = "4"          ##if u use muti gpu set them visiable there and then set config.TRAIN.num_gpu
+os.environ["CUDA_VISIBLE_DEVICES"] = "0"          ##if u use muti gpu set them visiable there and then set config.TRAIN.num_gpu
 
 config.TRAIN = edict()
 config.TRAIN.num_gpu = 1
-config.TRAIN.batch_size = 5                    ###A big batch size may achieve a better result, but the memory is a problem
+config.TRAIN.batch_size = 2                    ###A big batch size may achieve a better result, but the memory is a problem
 config.TRAIN.log_interval = 10
 config.TRAIN.epoch = 2000
 config.TRAIN.train_set_size=13000  ###########u need be sure
@@ -18,16 +18,16 @@ config.TRAIN.iter_num_per_epoch = config.TRAIN.train_set_size // config.TRAIN.nu
 
 config.TRAIN.val_iter=config.TRAIN.val_set_size// config.TRAIN.num_gpu // config.TRAIN.batch_size
 
-config.TRAIN.lr_value_every_step = [0.001,0.0001,0.00001,0.00001]
-config.TRAIN.lr_decay_every_step = [60000,80000,100000]
+config.TRAIN.lr_value_every_step = [0.0005,0.0001,0.00001,0.00001]
+config.TRAIN.lr_decay_every_step = [80000,100000,120000]
 
 
-config.TRAIN.weight_decay_factor = 5.e-4/config.TRAIN.num_gpu
+config.TRAIN.weight_decay_factor = 5.e-4
 config.TRAIN.dropout=0.5  ##no use
 config.TRAIN.vis=False
 
 config.TRAIN.norm='BN'    ##'GN' OR 'BN'
-config.TRAIN.lock_basenet_bn=False
+config.TRAIN.lock_basenet_bn=True
 config.TEST = edict()
 config.TEST.PARALLEL_ITERATIONS=8
 # Smaller threshold value gives significantly better mAP. But we use 0.05 for consistency with Detectron.
@@ -45,11 +45,11 @@ config.DATA.NUM_CLASS = config.DATA.NUM_CATEGORY + 1  # +1 background
 config.DATA.PIXEL_MEAN = [123.675, 116.28, 103.53]   ###rgb
 config.DATA.PIXEL_STD = [58.395, 57.12, 57.375]
 
-config.DATA.hin = 512  # input size
-config.DATA.win= 512
-config.DATA.MAX_SIZE=512
+config.DATA.hin = 640  # input size
+config.DATA.win= 640
+config.DATA.MAX_SIZE=640
 config.DATA.cover_small_face=5        #one of the
-####ssd generally not suppport muti scale
+####MUTISCALE need batch size=1
 config.DATA.MUTISCALE=False                #if muti scale set False  then config.DATA.hin will be the inputsize
 config.DATA.scales=(960,800,640,512,480,416,320)
 
@@ -79,14 +79,16 @@ config.ANCHOR.achors_num=len(all_anchors_flatten)
 
 print(len(all_anchors_flatten))
 
-# # basemodel ---------------------- fddb 0.983
+# # basemodel ---------------------- fddb 0.985
 config.MODEL = edict()
+config.MODEL.l2_norm=[10,8,5]
 config.MODEL.continue_train=False ### revover from a trained model
 config.MODEL.model_path = './model/'  # save directory
-config.MODEL.net_structure='resnet_v2_50' ######'resnet_v1_50,resnet_v1_101,mobilenet
-config.MODEL.pretrained_model='resnet_v2_50.ckpt'
-config.MODEL.fpn_dims=[256,512,1024,2048,512,256]
+config.MODEL.net_structure='resnet_v1_50' ######'resnet_v1_50,resnet_v1_101,mobilenet
+config.MODEL.pretrained_model='resnet_v1_50.ckpt'
+config.MODEL.fpn_dims=[256,512,1024,2048,256,256]
 config.MODEL.FEM_dims=512
+config.MODEL.fpn_sep_conv=False
 
 ###resnet_v1_101 as basemodel
 # config.MODEL = edict()
@@ -98,14 +100,14 @@ config.MODEL.FEM_dims=512
 # config.MODEL.FEM_dims=512
 
 #vgg as basemodel, if vgg set config.TRAIN.norm ='None', achieves fddb 0.985
-# config.MODEL = edict()
-# config.MODEL.l2_norm=[10,8,5]
-# config.MODEL.continue_train=False ### revover from a trained model
-# config.MODEL.model_path = './model/'  # save directory
-# config.MODEL.net_structure='vgg_16' ######'resnet_v1_50,resnet_v1_101,mobilenet
-# config.MODEL.pretrained_model='vgg_16.ckpt'
-# config.MODEL.fpn_dims=[256,512,512,1024,512,256]
-# config.MODEL.FEM_dims=512
+#config.MODEL = edict()
+#config.MODEL.l2_norm=[10,8,5]
+#config.MODEL.continue_train=True ### revover from a trained model
+#config.MODEL.model_path = './model/'  # save directory
+#config.MODEL.net_structure='vgg_16' ######'resnet_v1_50,resnet_v1_101,mobilenet
+#config.MODEL.pretrained_model='./epoch_59L2_0.00025.ckpt'
+#config.MODEL.fpn_dims=[256,512,512,1024,512,256]
+#config.MODEL.FEM_dims=512
 
 # ##efficientnet as basemodel
 # config.MODEL = edict()
@@ -122,12 +124,13 @@ config.MODEL.FEM_dims=512
 # config.MODEL.continue_train=False ### revover from a trained model
 # config.MODEL.model_path = './model/'  # save directory
 # config.MODEL.net_structure='MobilenetV1' ######'resnet_v1_50,resnet_v1_101,mobilenet
-# config.MODEL.pretrained_model='mobilenet_v1_0.5_160.ckpt'
-# config.MODEL.fpn_dims=[64,128,256,256,256,256]
+# config.MODEL.pretrained_model='mobilenet_v1_0.25_128.ckpt'
+# config.MODEL.fpn_dims=[32,64,128,256,256,256]
 # config.MODEL.FEM_dims=256
-
+# config.MODEL.fpn_sep_conv=True
 
 config.MODEL.fpn=True
+
 config.MODEL.dual_mode=True
 config.MODEL.maxout=True
 config.MODEL.context=True

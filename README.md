@@ -18,14 +18,15 @@ https://pan.baidu.com/s/1cUqnf9BwUVkCy0iT6EczKA ( password ty4d )
 
 widerface  val set
 
-| Easy MAP | Medium MAP | hard MAP |
-| :------: | :------: | :------: |
-|  0.942 | 0.935 | 0.880 |
+|model| Easy MAP | Medium MAP | hard MAP |
+| :------:| :------: | :------: | :------: |
+|vgg|  0.942 | 0.935 | 0.880 |
+|mobilenetv1-0.5|  0.903 | 0.887 | 0.801 |
 
-
-| fddb   |
-| :------: | 
-|  0.987 | 
+|model| fddb   |
+| :------:| :------: | 
+|vgg      |  0.987 | 
+|mobilenetv1-0.5|  0.967 | 
 
 
 
@@ -43,7 +44,7 @@ widerface  val set
 
 ### train
 1. download widerface data from http://shuoyang1213.me/WIDERFACE/
-and release the WIDER_train, WIDER_val and wider_face_split into ./WIDER, then run
+and release WIDER_train, WIDER_val and wider_face_split into ./WIDER, then run
 ```python prepare_wider_data.py```it will produce train.txt and val.txt
 (if u like train u own data, u should prepare the data like this:
 `...../9_Press_Conference_Press_Conference_9_659.jpg| 483(xmin),195(ymin),735(xmax),543(ymax),1(class) ......` 
