@@ -26,20 +26,6 @@ def produce_target(image,boxes,labels):
     # obtain anchor labels and their corresponding gt boxes
     anchor_labels, anchor_gt_boxes = get_anchor_labels(inside_anchors, boxes,labels)
 
-    # map back to all_anchors
-    num_all_anchors = all_anchors_flatten.shape[0]
-    all_labels = np.zeros((num_all_anchors, ), dtype='int32')
-    #all_labels[inside_ind] = anchor_labels
-    all_labels=anchor_labels
-    all_boxes = np.zeros((num_all_anchors, 4), dtype='float32')
-    #all_boxes[inside_ind] = anchor_gt_boxes
-    all_boxes=anchor_gt_boxes
-
-    if boxes.shape[0]==0:
-        print('hihihi')
-        all_labels = np.zeros((num_all_anchors,), dtype='int32')
-        all_boxes = np.zeros((num_all_anchors, 4), dtype='float32')
-
     # start = 0
     # multilevel_inputs = []
     # for level_anchor in anchors_per_level:
@@ -54,19 +40,10 @@ def produce_target(image,boxes,labels):
     #     start = end
     # assert end == num_all_anchors, "{} != {}".format(end, num_all_anchors)
     # return multilevel_inputs
-    return all_boxes,all_labels
+    return anchor_gt_boxes,anchor_labels
 
 def get_anchor_labels(anchors, gt_boxes,labels):
     # This function will modify labels and return the filtered inds
-    def filter_box_label(labels, value, max_num):
-        curr_inds = np.where(labels == value)[0]
-        if len(curr_inds) > max_num:
-            disable_inds = np.random.choice(
-                curr_inds, size=(len(curr_inds) - max_num),
-                replace=False)
-            labels[disable_inds] = -1  # ignore them
-            curr_inds = np.where(labels == value)[0]
-        return curr_inds
 
     NA, NB = len(anchors), len(gt_boxes)
     assert NB > 0  # empty images should have been filtered already
@@ -82,7 +59,7 @@ def get_anchor_labels(anchors, gt_boxes,labels):
     # for each anchor box choose the groundtruth box with largest iou
     max_iou = box_ious.max(axis=1)  # NA
     positive_anchor_indices = np.where(max_iou > cfg.ANCHOR.POSITIVE_ANCHOR_THRESH)[0]
-    negative_anchor_indices = np.where(max_iou < cfg.ANCHOR.NEGATIVE_ANCHOR_THRESH)[0]
+    #negative_anchor_indices = np.where(max_iou < cfg.ANCHOR.NEGATIVE_ANCHOR_THRESH)[0]
 
     positive_iou = box_ious[positive_anchor_indices]
     matched_gt_box_indices = positive_iou.argmax(axis=1)
@@ -240,4 +217,5 @@ if __name__ == '__main__':
     #     if label_target>0:
     #         box=boxes_target
     #         print(box)
+
 

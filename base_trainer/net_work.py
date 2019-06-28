@@ -173,11 +173,11 @@ class trainner():
     def make_data(self, ds,is_training=True):
 
         if is_training:
-            ds = MultiThreadMapData(ds, 3, self.train_map_func, buffer_size=200, strict=True)
+            ds = MultiThreadMapData(ds, 1, self.train_map_func, buffer_size=100, strict=True)
         else:
-            ds = MultiThreadMapData(ds, 3, self.val_map_func, buffer_size=200, strict=True)
+            ds = MultiThreadMapData(ds, 1, self.val_map_func, buffer_size=100, strict=True)
         ds = BatchData(ds, cfg.TRAIN.num_gpu * cfg.TRAIN.batch_size, remainder=True,use_list=False)
-        ds = MultiProcessPrefetchData(ds, 100,1)
+        ds = MultiProcessPrefetchData(ds, 100,6)
         ds.reset_state()
         ds=ds.get_data()
 
@@ -350,8 +350,8 @@ class trainner():
 
             min_loss_control=1000.
             for epoch in range(cfg.TRAIN.epoch):
-                self._train(self.train_ds,epoch)
-                val_loss=self._val(self.val_ds,epoch)
+                self._train(epoch)
+                val_loss=self._val(epoch)
                 logger.info('**************'
                            'val_loss %f '%(val_loss))
 
@@ -374,7 +374,7 @@ class trainner():
 
 
 
-    def _train(self,train_ds,_epoch):
+    def _train(self,_epoch):
         for step in range(cfg.TRAIN.iter_num_per_epoch):
             self.ite_num += 1
 
@@ -382,7 +382,7 @@ class trainner():
 
             ########show_flag check the data
             if cfg.TRAIN.vis:
-                example_image,example_all_boxes,example_all_labels = next(train_ds)
+                example_image,example_all_boxes,example_all_labels = next(self.train_ds)
 
                 print(example_all_boxes.shape)
                 for i in range(example_all_boxes.shape[0]):
@@ -406,7 +406,7 @@ class trainner():
                 feed_dict = {}
                 for n in range(cfg.TRAIN.num_gpu):
 
-                    examples = next(train_ds)
+                    examples = next(self.train_ds)
 
                     feed_dict[self.inputs[0][n]] = examples[0][n*cfg.TRAIN.batch_size:(n+1)*cfg.TRAIN.batch_size]
                     feed_dict[self.inputs[1][n]] = examples[1][n*cfg.TRAIN.batch_size:(n+1)*cfg.TRAIN.batch_size]
@@ -457,15 +457,15 @@ class trainner():
                 if self.ite_num % 100 == 0:
                     summary_str = self.sess.run(self.summary_op, feed_dict=feed_dict)
                     self.summary_writer.add_summary(summary_str, self.ite_num)
-    def _val(self,val_ds,_epoch):
+    def _val(self,_epoch):
 
         all_total_loss=0
         for step in range(cfg.TRAIN.val_iter):
 
             feed_dict = {}
             for n in range(cfg.TRAIN.num_gpu):
-                examples = next(val_ds)
-
+                examples = next(self.val_ds)
+                time.sleep(0.1)
                 feed_dict[self.inputs[0][n]] = examples[0][n*cfg.TRAIN.batch_size:(n+1)*cfg.TRAIN.batch_size]
                 feed_dict[self.inputs[1][n]] = examples[1][n*cfg.TRAIN.batch_size:(n+1)*cfg.TRAIN.batch_size]
                 feed_dict[self.inputs[2][n]] = examples[2][n*cfg.TRAIN.batch_size:(n+1)*cfg.TRAIN.batch_size]
@@ -486,6 +486,7 @@ class trainner():
 
     def train(self):
         self.train_loop()
+
 
 
 

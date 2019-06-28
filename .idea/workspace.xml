@@ -2,25 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d9a5d99f-65a3-444a-be6f-a140fd60ccce" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/net/arg_scope/resnet_args_cope.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/DSFD-tensorflow.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/DSFD-tensorflow.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/base_trainer/net_work.py" beforeDir="false" afterPath="$PROJECT_DIR$/base_trainer/net_work.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/net/FEM.py" beforeDir="false" afterPath="$PROJECT_DIR$/net/FEM.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/net/efficientnet/backbone.py" beforeDir="false" afterPath="$PROJECT_DIR$/net/efficientnet/backbone.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/net/mobilenet/backbone.py" beforeDir="false" afterPath="$PROJECT_DIR$/net/mobilenet/backbone.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/net/resnet/backbone.py" beforeDir="false" afterPath="$PROJECT_DIR$/net/resnet/backbone.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/net/resnet/basemodel.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/net/resnet/resnet_utils.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/net/resnet/resnet_v1.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/net/simplenet/__init__.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/net/simplenet/backbone.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/net/simplenet/simple_nn.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/net/ssd.py" beforeDir="false" afterPath="$PROJECT_DIR$/net/ssd.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/net/ssd_out.py" beforeDir="false" afterPath="$PROJECT_DIR$/net/ssd_out.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/utils.py" beforeDir="false" afterPath="$PROJECT_DIR$/data/utils.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/net/vgg/backbone.py" beforeDir="false" afterPath="$PROJECT_DIR$/net/vgg/backbone.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/train.py" beforeDir="false" afterPath="$PROJECT_DIR$/train.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/train_config.py" beforeDir="false" afterPath="$PROJECT_DIR$/train_config.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -34,29 +20,68 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/train_config.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1634">
-              <caret line="88" column="25" selection-start-line="88" selection-start-column="25" selection-end-line="88" selection-end-column="25" />
+            <state relative-caret-position="320">
+              <caret line="54" selection-start-line="54" selection-end-line="54" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/net/resnet/backbone.py">
+        <entry file="file://$PROJECT_DIR$/data/utils.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="437">
-              <caret line="31" selection-start-line="31" selection-end-line="31" />
-              <folding>
-                <element signature="e#0#23#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="881">
+              <caret line="235" column="25" selection-start-line="235" selection-start-column="25" selection-end-line="235" selection-end-column="25" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/net/ssd.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="400">
+              <caret line="32" lean-forward="true" selection-start-line="32" selection-end-line="32" />
+              <folding>
+                <element signature="e#22#45#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/base_trainer/net_work.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="19">
-              <caret line="26" column="8" selection-start-line="26" selection-start-column="8" selection-end-line="26" selection-end-column="8" />
+            <state relative-caret-position="703">
+              <caret line="178" column="22" selection-start-line="178" selection-start-column="13" selection-end-line="178" selection-end-column="22" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/anchor/tf_anchors.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="380">
+              <caret line="41" column="49" selection-start-line="40" selection-start-column="4" selection-end-line="41" selection-end-column="49" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/net/FEM.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="340">
+              <caret line="22" selection-start-line="22" selection-end-line="22" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/net/vgg/backbone.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="480">
+              <caret line="31" column="44" selection-start-line="31" selection-start-column="44" selection-end-line="31" selection-end-column="44" />
+              <folding>
+                <element signature="e#0#23#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -105,7 +130,6 @@
         <option value="$PROJECT_DIR$/net_work.py" />
         <option value="$PROJECT_DIR$/model_eval/tmp.py" />
         <option value="$PROJECT_DIR$/train.py" />
-        <option value="$PROJECT_DIR$/data/utils.py" />
         <option value="$PROJECT_DIR$/README.md" />
         <option value="$PROJECT_DIR$/net/mobilenet/backbone.py" />
         <option value="$PROJECT_DIR$/net/ssd_loss.py" />
@@ -119,14 +143,15 @@
         <option value="$PROJECT_DIR$/net/efficientnet/backbone.py" />
         <option value="$PROJECT_DIR$/net/efficientnet/model.py" />
         <option value="$PROJECT_DIR$/net/resnet/resnet_args_cope.py" />
-        <option value="$PROJECT_DIR$/net/vgg/backbone.py" />
         <option value="$PROJECT_DIR$/net/resnet/backbone.py" />
         <option value="$PROJECT_DIR$/net/resnet/resnet_utils.py" />
         <option value="$PROJECT_DIR$/net/arg_scope/resnet_args_cope.py" />
         <option value="$PROJECT_DIR$/net/resnet/resnet_v1.py" />
         <option value="$PROJECT_DIR$/net/resnet/resnet_v2.py" />
-        <option value="$PROJECT_DIR$/net/ssd.py" />
+        <option value="$PROJECT_DIR$/net/vgg/backbone.py" />
+        <option value="$PROJECT_DIR$/data/utils.py" />
         <option value="$PROJECT_DIR$/train_config.py" />
+        <option value="$PROJECT_DIR$/net/ssd.py" />
       </list>
     </option>
   </component>
@@ -141,6 +166,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -151,18 +177,23 @@
             <path>
               <item name="DSFD-tensorflow" type="b2602c69:ProjectViewProjectNode" />
               <item name="DSFD-tensorflow" type="462c0819:PsiDirectoryNode" />
-              <item name="base_trainer" type="462c0819:PsiDirectoryNode" />
+              <item name="data" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="DSFD-tensorflow" type="b2602c69:ProjectViewProjectNode" />
               <item name="DSFD-tensorflow" type="462c0819:PsiDirectoryNode" />
               <item name="net" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="DSFD-tensorflow" type="b2602c69:ProjectViewProjectNode" />
+              <item name="DSFD-tensorflow" type="462c0819:PsiDirectoryNode" />
+              <item name="net" type="462c0819:PsiDirectoryNode" />
+              <item name="vgg" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -204,9 +235,10 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="64" y="-11" width="1857" height="1092" extended-state="6" />
+    <frame x="1431" y="-4" width="2495" height="1444" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.1463681" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.2112505" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -301,16 +333,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/net/simplenet/backbone.py">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/data/utils.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="483">
-          <caret line="253" column="27" lean-forward="true" selection-start-line="253" selection-start-column="27" selection-end-line="253" selection-end-column="27" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/net/simplenet/backbone.py" />
     <entry file="file://$PROJECT_DIR$/net/ssd_loss.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="768">
@@ -354,8 +377,8 @@
     <entry file="file://$PROJECT_DIR$/model_eval/wider.py" />
     <entry file="file://$PROJECT_DIR$/vis.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="21" selection-start-line="21" selection-end-line="21" />
+        <state relative-caret-position="520">
+          <caret line="35" selection-start-line="35" selection-end-line="35" />
         </state>
       </provider>
     </entry>
@@ -417,24 +440,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../anaconda3/lib/python3.6/site-packages/caffe2/python/model_helper.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="428">
-          <caret line="130" column="8" selection-start-line="130" selection-start-column="8" selection-end-line="130" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/../anaconda3/lib/python3.6/site-packages/caffe2/python/model_helper.py" />
     <entry file="file://$PROJECT_DIR$/net/ssd_out.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="100">
           <caret line="5" column="44" lean-forward="true" selection-start-line="5" selection-start-column="40" selection-end-line="5" selection-end-column="56" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/net/FEM.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="467">
-          <caret line="29" lean-forward="true" selection-start-line="29" selection-end-line="29" />
         </state>
       </provider>
     </entry>
@@ -476,34 +486,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/net/vgg/backbone.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="860">
-          <caret line="67" column="22" lean-forward="true" selection-start-line="67" selection-start-column="22" selection-end-line="67" selection-end-column="22" />
-          <folding>
-            <element signature="e#0#23#0" expanded="true" />
-            <element signature="e#410#1274#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/net/ssd.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="740">
-          <caret line="70" lean-forward="true" selection-start-line="70" selection-end-line="70" />
-          <folding>
-            <element signature="e#22#45#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/train_config.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1634">
-          <caret line="88" column="25" selection-start-line="88" selection-start-column="25" selection-end-line="88" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/net/resnet/backbone.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="437">
@@ -516,8 +498,63 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/base_trainer/net_work.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="19">
-          <caret line="26" column="8" selection-start-line="26" selection-start-column="8" selection-end-line="26" selection-end-column="8" />
+        <state relative-caret-position="703">
+          <caret line="178" column="22" selection-start-line="178" selection-start-column="13" selection-end-line="178" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/anchor/tf_anchors.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="380">
+          <caret line="41" column="49" selection-start-line="40" selection-start-column="4" selection-end-line="41" selection-end-column="49" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/anchor/utils.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2490">
+          <caret line="179" column="20" selection-start-line="179" selection-start-column="20" selection-end-line="179" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/net/FEM.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="340">
+          <caret line="22" selection-start-line="22" selection-end-line="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/data/utils.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="881">
+          <caret line="235" column="25" selection-start-line="235" selection-start-column="25" selection-end-line="235" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/net/vgg/backbone.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="480">
+          <caret line="31" column="44" selection-start-line="31" selection-start-column="44" selection-end-line="31" selection-end-column="44" />
+          <folding>
+            <element signature="e#0#23#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/train_config.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="320">
+          <caret line="54" selection-start-line="54" selection-end-line="54" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/net/ssd.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="400">
+          <caret line="32" lean-forward="true" selection-start-line="32" selection-end-line="32" />
+          <folding>
+            <element signature="e#22#45#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

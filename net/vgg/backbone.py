@@ -48,11 +48,11 @@ def vgg_ssd(image,L2_reg,is_training=True):
             print('mobile backbone output:',k,v)
 
         ###add conv6, conv7
-        conv6 = slim.conv2d(net, 1024, [3, 3],
+        conv6 = slim.conv2d(net, 512, [1, 1],
                           activation_fn=tf.nn.relu,
                           normalizer_fn=None,
                           scope='fc6')
-        conv7 = slim.conv2d(conv6, 1024, [1, 1],
+        conv7 = slim.conv2d(conv6, 1024, [3, 3],
                           activation_fn=tf.nn.relu,
                           normalizer_fn=None,
                           scope='fc7')

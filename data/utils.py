@@ -127,13 +127,60 @@ def _data_aug_fn(fname, ground_truth,is_training=True):
         boxes = np.array(boxes, dtype=np.float)
 
         ###clip the bbox for the reason that some bboxs are beyond the image
-        h_raw_limit, w_raw_limit, _ = image.shape
-        boxes[:, 2] = np.clip(boxes[:, 2], 0, w_raw_limit)
-        boxes[:, 3] = np.clip(boxes[:, 3], 0, h_raw_limit)
-        boxes[boxes < 0] = 0
+        # h_raw_limit, w_raw_limit, _ = image.shape
+        # boxes[:, 2] = np.clip(boxes[:, 2], 0, w_raw_limit)
+        # boxes[:, 3] = np.clip(boxes[:, 3], 0, h_raw_limit)
+        # boxes[boxes < 0] = 0
         #########random scale
         ############## becareful with this func because there is a Infinite loop in its body
         if is_training:
+
+            sample_dice=random.uniform(0, 1)
+            
+            if sample_dice>0.5 and sample_dice<=1:
+                boxes_ = boxes[:, 0:4]
+                klass_ = boxes[:, 4:]
+
+                image, boxes_, klass_ = dsfd_aug(image, boxes_, klass_)
+                image, shift_x, shift_y = Fill_img(image, target_width=cfg.DATA.win, target_height=cfg.DATA.hin)
+                boxes_[:, 0:4] = boxes_[:, 0:4] + np.array([shift_x, shift_y, shift_x, shift_y], dtype='float32')
+                h, w, _ = image.shape
+                boxes_[:, 0] /= w
+                boxes_[:, 1] /= h
+                boxes_[:, 2] /= w
+                boxes_[:, 3] /= h
+                image = cv2.resize(image, (cfg.DATA.win, cfg.DATA.hin))
+
+                boxes_[:, 0] *= cfg.DATA.win
+                boxes_[:, 1] *= cfg.DATA.hin
+                boxes_[:, 2] *= cfg.DATA.win
+                boxes_[:, 3] *= cfg.DATA.hin
+                image = image.astype(np.uint8)
+                boxes = np.concatenate([boxes_, klass_], axis=1)
+            else:
+                boxes_ = boxes[:, 0:4]
+                klass_ = boxes[:, 4:]
+                image,boxes_,klass_=baidu_aug(image,boxes_,klass_)
+
+                image, shift_x, shift_y = Fill_img(image, target_width=cfg.DATA.win, target_height=cfg.DATA.hin)
+                boxes_[:, 0:4] = boxes_[:, 0:4] + np.array([shift_x, shift_y, shift_x, shift_y], dtype='float32')
+                h, w, _ = image.shape
+                boxes_[:, 0] /= w
+                boxes_[:, 1] /= h
+                boxes_[:, 2] /= w
+                boxes_[:, 3] /= h
+
+                image = cv2.resize(image, (cfg.DATA.win, cfg.DATA.hin))
+
+                boxes_[:, 0] *= cfg.DATA.win
+                boxes_[:, 1] *= cfg.DATA.hin
+                boxes_[:, 2] *= cfg.DATA.win
+                boxes_[:, 3] *= cfg.DATA.hin
+                image=image.astype(np.uint8)
+                boxes = np.concatenate([boxes_, klass_], axis=1)
+
+
+
             if random.uniform(0, 1) > 0.5:
                 image, boxes = Random_flip(image, boxes)
             image = Pixel_jitter(image, max_=15)
@@ -158,56 +205,7 @@ def _data_aug_fn(fname, ground_truth,is_training=True):
             #     image, boxes_ = Rotate_with_box(image, boxes=boxes_, angle=angle)
             #     boxes = np.concatenate([boxes_, klass_], axis=1)
 
-            sample_dice=random.uniform(0, 1)
-            if  sample_dice> 1:
-                if not cfg.DATA.MUTISCALE:
-                    image, boxes = Random_scale_withbbox(image, boxes, target_shape=[cfg.DATA.hin, cfg.DATA.win],
-                                                         jitter=0.3)
-                else:
-                    rand_h = random.sample(cfg.DATA.scales, 1)[0]
-                    rand_w = random.sample(cfg.DATA.scales, 1)[0]
-                    image, boxes = Random_scale_withbbox(image, boxes, target_shape=[rand_h, rand_w], jitter=0.3)
-            elif sample_dice>0.5 and sample_dice<=1:
-                boxes_ = boxes[:, 0:4]
-                klass_ = boxes[:, 4:]
 
-                image, boxes_, klass_ = dsfd_aug(image, boxes_, klass_)
-                image, shift_x, shift_y = Fill_img(image, target_width=cfg.DATA.win, target_height=cfg.DATA.hin)
-                boxes_[:, 0:4] = boxes_[:, 0:4] + np.array([shift_x, shift_y, shift_x, shift_y], dtype='float32')
-                h, w, _ = image.shape
-                boxes_[:, 0] /= w
-                boxes_[:, 1] /= h
-                boxes_[:, 2] /= w
-                boxes_[:, 3] /= h
-                image = image.astype(np.uint8)
-                image = cv2.resize(image, (cfg.DATA.win, cfg.DATA.hin))
-
-                boxes_[:, 0] *= cfg.DATA.win
-                boxes_[:, 1] *= cfg.DATA.hin
-                boxes_[:, 2] *= cfg.DATA.win
-                boxes_[:, 3] *= cfg.DATA.hin
-                image = image.astype(np.uint8)
-                boxes = np.concatenate([boxes_, klass_], axis=1)
-            else:
-                boxes_ = boxes[:, 0:4]
-                klass_ = boxes[:, 4:]
-                image,boxes_,klass_=baidu_aug(image,boxes_,klass_)
-
-                image, shift_x, shift_y = Fill_img(image, target_width=cfg.DATA.win, target_height=cfg.DATA.hin)
-                boxes_[:, 0:4] = boxes_[:, 0:4] + np.array([shift_x, shift_y, shift_x, shift_y], dtype='float32')
-                h, w, _ = image.shape
-                boxes_[:, 0] /= w
-                boxes_[:, 1] /= h
-                boxes_[:, 2] /= w
-                boxes_[:, 3] /= h
-                image=image.astype(np.uint8)
-                image = cv2.resize(image, (cfg.DATA.win, cfg.DATA.hin))
-
-                boxes_[:, 0] *= cfg.DATA.win
-                boxes_[:, 1] *= cfg.DATA.hin
-                boxes_[:, 2] *= cfg.DATA.win
-                boxes_[:, 3] *= cfg.DATA.hin
-                boxes = np.concatenate([boxes_, klass_], axis=1)
         else:
             boxes_=boxes[:, 0:4]
             klass_=boxes[:, 4:]
@@ -251,17 +249,17 @@ def _data_aug_fn(fname, ground_truth,is_training=True):
             boxes_=np.array(boxes[:,0:4],dtype=np.float32)
             klass_=np.array(boxes[:,4],dtype=np.int64)
 
-        boxes_refine=boxes_
+
 
 
     except:
         logger.warn('there is an err with %s' % fname)
         traceback.print_exc()
         image = np.zeros(shape=(cfg.DATA.hin, cfg.DATA.win, 3), dtype=np.float32)
-        boxes_refine = np.array([[0, 0, 100, 100]])
+        boxes_ = np.array([[0, 0, 100, 100]])
         klass_ = np.array([0])
 
-    all_boxes,all_labels =produce_target(image,boxes_refine,klass_)
+    all_boxes,all_labels =produce_target(image,boxes_,klass_)
     return image,all_boxes,all_labels
 
 
@@ -275,6 +273,7 @@ if __name__=='__main__':
     image = np.zeros(shape=(cfg.DATA.hin, cfg.DATA.win, 3), dtype=np.float32)
     boxes_refine = np.array([[0,0,100,100]])
     klass = np.array([1])
+
 
 
 
