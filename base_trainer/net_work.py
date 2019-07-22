@@ -400,10 +400,9 @@ class trainner():
 
                 start_time = time.time()
                 feed_dict = {}
+                examples = next(train_ds)
+                
                 for n in range(cfg.TRAIN.num_gpu):
-
-                    examples = next(train_ds)
-
                     feed_dict[self.inputs[0][n]] = examples[0][n*cfg.TRAIN.batch_size:(n+1)*cfg.TRAIN.batch_size]
                     feed_dict[self.inputs[1][n]] = examples[1][n*cfg.TRAIN.batch_size:(n+1)*cfg.TRAIN.batch_size]
                     feed_dict[self.inputs[2][n]] = examples[2][n*cfg.TRAIN.batch_size:(n+1)*cfg.TRAIN.batch_size]
@@ -459,8 +458,9 @@ class trainner():
         for step in range(cfg.TRAIN.val_iter):
 
             feed_dict = {}
+            examples = next(val_ds)
             for n in range(cfg.TRAIN.num_gpu):
-                examples = next(val_ds)
+                
 
                 feed_dict[self.inputs[0][n]] = examples[0][n*cfg.TRAIN.batch_size:(n+1)*cfg.TRAIN.batch_size]
                 feed_dict[self.inputs[1][n]] = examples[1][n*cfg.TRAIN.batch_size:(n+1)*cfg.TRAIN.batch_size]
